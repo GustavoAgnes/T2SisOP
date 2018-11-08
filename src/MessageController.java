@@ -69,9 +69,9 @@ public class MessageController implements Runnable{
             panel.setReceivedText("ACK received");
             try {
                 if(content_msg.equals(myNickName))
-                    queue.AddMessage("4060");
+                    queue.addMessage("4060");
                 else
-                    queue.AddMessage(msg);
+                    queue.addMessage(msg);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MessageController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -83,9 +83,9 @@ public class MessageController implements Runnable{
         String to_who = to_me[0];
         panel.setReceivedText("Message Received");
         if (to_who.equals(myNickName)){
-            queue.AddMessage("ACK;"+to_me[1]);
+            queue.addMessage("ACK;"+to_me[1]);
         }else{
-            queue.AddMessage(msg);
+            queue.addMessage(msg);
         }
         queue.removeFirstElement();
         WaitForMessage.release();

@@ -136,7 +136,8 @@ public class UI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             String txt = jTextArea2.getText().trim();
-            queue.AddMessage(txt);
+            System.out.println(queue);
+            queue.addMessage("4066;Teste:Teste:Mensagem Teste");
             System.out.println("Adicionado a fila: " + jTextArea2.getText());
             jTextArea2.setText("");
         } catch (InterruptedException ex) {

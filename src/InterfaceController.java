@@ -11,7 +11,10 @@ import javafx.stage.Stage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class InterfaceController extends Application {
+
+
 
     public static Stage stage;
     private MessageQueue queue;
@@ -20,7 +23,12 @@ public class InterfaceController extends Application {
     @FXML
     private Button enviar = new Button();
 
-    @Override
+    @FXML
+    public void initialize(MessageQueue queue) {
+        this.queue = queue;
+    }
+
+
     public void start(Stage stage) throws Exception {
         this.stage = stage; // initialize value of stage.
         Parent root = FXMLLoader.load(getClass().getResource("Interface.fxml"));
@@ -28,21 +36,20 @@ public class InterfaceController extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
-
     }
 
     //   enviar.setOnAction(new EventHandler<ActionEvent>() {
 
     public void handle(ActionEvent e) {
-        //try {
-            //String txt = textArea.getText().trim();
-            //queue.AddMessage(txt);
+       // try {
+            String txt = textArea.getText().trim();
+        MessageQueue fila = new MessageQueue();
+        try {
+            fila.addMessage(txt);
+        } catch (InterruptedException exc) {
+            exc.printStackTrace();
+        }
             System.out.println("Adicionado a fila: "+ textArea.getText());
-         //   textArea.setText("");
-        //} catch (InterruptedException ex) {
-        //    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+            textArea.setText("");
     }
-
 }

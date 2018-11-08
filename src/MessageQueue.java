@@ -17,13 +17,13 @@ public class MessageQueue {
     public void removeFirstElement(){
         queue.remove(0);
     }
-    public synchronized void AddMessage(String Message) throws InterruptedException{
+    public synchronized void addMessage(String Message) throws InterruptedException{
         //messageWait.acquire();
         queue.add(Message);
         //messageWait.release();
     }
     
-    public synchronized void RemoveMessage() throws InterruptedException{
+    public synchronized void removeMessage() throws InterruptedException{
         //messageWait.acquire();
         queue.remove(queue.get(0));
         //messageWait.release();
