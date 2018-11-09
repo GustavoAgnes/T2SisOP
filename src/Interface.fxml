@@ -7,11 +7,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="596.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceController">
+<AnchorPane onKeyPressed="#handleKeyPressed" prefHeight="596.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceController">
    <children>
       <Separator layoutX="288.0" layoutY="168.0" orientation="VERTICAL" prefHeight="427.0" prefWidth="0.0" />
       <TextArea fx:id="textArea" layoutX="14.0" layoutY="210.0" prefHeight="374.0" prefWidth="261.0" />
-      <Separator layoutX="2.0" layoutY="167.0" prefHeight="1.0" prefWidth="575.0" />
+      <Separator layoutX="2.0" layoutY="167.0" prefHeight="0.0" prefWidth="582.0" />
       <Button fx:id="enviar" layoutX="119.0" layoutY="178.0" mnemonicParsing="false" onAction="#handle" text="Enviar" />
+      <Text layoutX="404.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recebidas" />
+      <TextArea fx:id="textArea1" editable="false" layoutX="300.0" layoutY="210.0" prefHeight="374.0" prefWidth="261.0" />
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IP dessa maquina é:" />
+      <Text fx:id="ip" layoutX="133.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IP da maquina destino é:" />
+      <Text fx:id="ipDestino" layoutX="158.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A porta de destino é:" />
+      <Text fx:id="porta" layoutX="132.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O nickname dessa maquina é:" />
+      <Text fx:id="myNickName" layoutX="180.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <TextArea fx:id="hiddenText" visible="false" layoutX="339.0" layoutY="45.0" prefHeight="73.0" prefWidth="183.0" />
    </children>
 </AnchorPane>

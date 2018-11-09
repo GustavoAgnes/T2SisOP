@@ -36,6 +36,7 @@ public class MessageReceiver implements Runnable {
 
 
         while (true) {
+            System.out.println("Rodando o message Receiver!");
             byte[] receiveData = new byte[1024];
 
             /* Cria um DatagramPacket */
@@ -52,10 +53,13 @@ public class MessageReceiver implements Runnable {
             String msg = new String(receivePacket.getData());
 
             try {
+                System.out.println("Chamou o controller received message");
+                System.out.println("A mensagem é: "+msg);
                 controller.ReceivedMessage(msg);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MessageReceiver.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
     }
 

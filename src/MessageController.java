@@ -18,6 +18,7 @@ public class MessageController implements Runnable{
     private int time_token;
     private Boolean token;
     private UI panel;
+    private InterfaceController ic;
     private String myNickName;
     
     public MessageController(   MessageQueue q, 
@@ -26,9 +27,12 @@ public class MessageController implements Runnable{
                                 Boolean t,
                                 String n,
                                 String myNickName,
-                                UI panel) throws UnknownHostException{
+                                InterfaceController ic)
+                               // UI panel)
+                                 throws UnknownHostException{
         
         queue = q;
+        this.ic = ic;
         this.panel = panel;
         String aux[] = ip_port.split(":");
         
@@ -51,8 +55,11 @@ public class MessageController implements Runnable{
      * repasse o ACK para o seu vizinho da direita.
      */
     public void ReceivedMessage(String msg) throws InterruptedException{
+        System.out.println("Metodo de Received Message");
         if (msg.trim().equals("4060")){
-            panel.setReceivedText("Token Received");
+//            panel.setReceivedText("Token Received");
+            System.out.println("Deveria ter chamado para adicionar token received");
+            ic.setReceivedText("Token Received");
             if (!queue.queue.isEmpty()){
                 sendMessage();
             }
@@ -66,7 +73,7 @@ public class MessageController implements Runnable{
         String content_msg = msg_splitted[1];
         
         if (msg_type.equals("ACK")){
-            panel.setReceivedText("ACK received");
+           // panel.setReceivedText("ACK received");
             try {
                 if(content_msg.equals(myNickName))
                     queue.addMessage("4060");
@@ -81,7 +88,7 @@ public class MessageController implements Runnable{
         }
         String[] to_me = content_msg.split(":");
         String to_who = to_me[0];
-        panel.setReceivedText("Message Received");
+       // panel.setReceivedText("Message Received");
         if (to_who.equals(myNickName)){
             queue.addMessage("ACK;"+to_me[1]);
         }else{
