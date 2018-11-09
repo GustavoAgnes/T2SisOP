@@ -21,7 +21,6 @@ import static javafx.application.Application.launch;
 public class TokenRing {
 
     Parent root = FXMLLoader.load(getClass().getResource("interface.fxml"));
-    static InterfaceController ic = new InterfaceController();
 
     public TokenRing() throws IOException {
     }
@@ -48,7 +47,7 @@ public class TokenRing {
 
 
 
-            ic.launch(InterfaceController.class);
+            Application.launch(InterfaceController.class, args);
             //ic.testePrint();
             //javafx.application.Application.launch(InterfaceController.class);
 
@@ -73,12 +72,12 @@ public class TokenRing {
         }
 
        // MessageController controller = new MessageController(queue, ip_port, t_token, token, nickname, myNickName, interf);
-        MessageController controller = new MessageController(queue, ip_port, t_token, token, nickname, myNickName, ic);
-        Thread thr_controller = new Thread(controller);
-        Thread thr_receiver = new Thread(new MessageReceiver(queue, port, controller));
+     //   MessageController controller = new MessageController(queue, ip_port, t_token, token, nickname, myNickName, ic);
+      //  Thread thr_controller = new Thread(controller);
+      //  Thread thr_receiver = new Thread(new MessageReceiver(queue, port, controller));
 
-        thr_controller.start();
-        thr_receiver.start();
+      //  thr_controller.start();
+      //  thr_receiver.start();
 
 
         //

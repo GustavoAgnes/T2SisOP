@@ -30,9 +30,9 @@ public class InterfaceController extends Application {
     //  private MessageQueue queue;
     private MessageQueue fila = new MessageQueue();
     @FXML
-    private TextArea textArea;
+    private TextArea textArea = new TextArea();
     @FXML
-    private TextArea textArea1;
+    private TextArea textArea1 = new TextArea();
     //@FXML
     //  private Button enviar = new Button();
     @FXML
@@ -91,6 +91,9 @@ public class InterfaceController extends Application {
         stage.setResizable(false);
         stage.show();
         System.out.println("teste Start");
+        while(true){
+            textArea1.setText(textArea.getText().toString()+"texto");
+        }
     }
 
     @FXML
